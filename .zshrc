@@ -6,6 +6,9 @@ export ZSH=/home/eddcode/.oh-my-zsh
 # Path java
 export PATH=$PATH:'/opt/jdk/jre/bin'
 export PATH=$PATH:'/opt/jdk/bin'
+
+#path to laravel
+export PATH=$PATH:$HOME'/.config/composer/vendor/bin/'
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -107,4 +110,4 @@ alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 
 #cow say and fortune
-cowfortune
+fortune | cowsay
