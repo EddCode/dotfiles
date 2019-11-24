@@ -12,7 +12,7 @@ module.exports = {
     fontSize: 14,
 
     // font family with optional fallbacks
-    fontFamily: '"FiraFlott", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+    fontFamily: '"Droid Sans Mono for Powerline", "FiraFlott", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 
     // default font weight: 'normal' or 'bold'
     fontWeight: 'bold',
@@ -36,7 +36,7 @@ module.exports = {
     cursorShape: 'BLOCK',
 
     // set to `true` (without backticks and without quotes) for blinking cursor
-    cursorBlink: false,
+    cursorBlink: true,
 
     // color of the text
     foregroundColor: '#fff',
@@ -55,7 +55,7 @@ module.exports = {
     css: '',
 
     // custom CSS to embed in the terminal window
-    termCSS: '',
+    termCSS: ``,
 
     // if you're using a Linux setup which show native menus, set to false
     // default: `true` on Linux, `true` on Windows, ignored on macOS
@@ -90,7 +90,11 @@ module.exports = {
       lightCyan: '#68FDFE',
       lightWhite: '#FFFFFF',
     },
-    //pokemon: "Zubat",
+    hyperBorder: {
+      borderColors: ['#00ffff', '#00bbff'],
+      blurredColors: ['#00ffff', '#00bbff'],
+      borderWidth: '2px'
+    },
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
     // if left empty, your system's login shell will be used by default
@@ -139,12 +143,17 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
-    "hyper-kraftvaerk"
-    //"hyper-oceans16",
-    // "hyper-snazzy",
-    // "hyper-pokemon"
+    //"hyper-kraftvaerk"
+    // "hyper-oceans16",
     // "hyper-electron-highlighter",
-    //"hyper-subliminal-theme"
+    // "hyper-subliminal-theme",
+    // "hyper-pokemon",
+    // "hyperlinks",
+    // "gitrocket",
+    "space-pull",
+    "hyper-snazzy",
+    "hyperborder",
+    "git-falcon9",
   ],
 
   // in development, you can create a directory under
