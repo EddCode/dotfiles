@@ -1,0 +1,13 @@
+[user]
+	email = edgar.figueroa.gtz@gmail.com
+	user = EddCode
+	name = Edgar Figueroa
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	unstage = reset HEAD --
+	br = branch
+	last = log -1 HEAD
+	po = push origin
+	alias = config --global --get-regex alias
