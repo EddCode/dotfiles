@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+
+# Install Homebrew (if not installed)
+if test ! $(which brew)
+then
+    echo "Installing Homebrew for you."
+
+    # Install the correct homebrew for each OS type
+    if test "$(uname)" = "Darwin"
+    then
+       ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
+    then
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
+    fi
+fi
+
+# Make sure we're using the latest Homebrew.
+echo "Update & uhrade homebrew"
+brew update
+
+# Upgrade any already-installed formulae.
+brew upgrade
+
+# Save Homebrew's installed location.
+BREW_PREFIX=$(brew --prefix)
+
+# Install `wget` with IRI support.
+echo "Install node"
+brew install node
+brew install yarn
+
+
+# Install fish shell and fisherman
+echo "Install fish and set fish as default shell"
+brew install fish
+curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+echo /usr/local/bin/fish >> /etc/shells
+chsh -s /usr/local/bin/fish
+
+# Install other useful binaries.
+echo "Install useful binaries"
+brew install git
+brew insgall tmux
+brew install nvm
+
+# Installs Casks
+brew tap caskroom/cask
+brew tap homebrew/cask-fonts
+
+# Install font tools.
+brew cask install font-firaCode-nerd-font
+
+## Apps I use
+brew cask install docker
+brew cask install lastpass
+brew cask install microsoft-edge
+brew cask install postman
+brew cask install slack
+brew cask install telegram
+brew cask install whatsapp
+
+# Remove outdated versions from the cellar.
+brew cleanup
