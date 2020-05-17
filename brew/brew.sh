@@ -41,8 +41,8 @@ chsh -s /usr/local/bin/fish
 # Install other useful binaries.
 echo "Install useful binaries"
 brew install git
-brew insgall tmux
-brew install nvm
+brew install tmux
+brew install node
 
 # Installs Casks
 brew tap caskroom/cask
