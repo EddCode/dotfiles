@@ -26,10 +26,16 @@ brew upgrade
 BREW_PREFIX=$(brew --prefix)
 
 # Install `wget` with IRI support.
-echo "Install node"
+echo "Installing node"
 brew install node
 brew install yarn
 
+echo "Installing go(lang)"
+brew install go
+
+echo "Installing Dart"
+brew tap dart-lang/dart
+brew install dart
 
 # Install fish shell and fisherman
 echo "Install fish and set fish as default shell"
