@@ -37,6 +37,9 @@ echo "Installing Dart"
 brew tap dart-lang/dart
 brew install dart
 
+echo "Instaling deno"
+brew install deno
+
 # Install fish shell and fisherman
 echo "Install fish and set fish as default shell"
 brew install fish
