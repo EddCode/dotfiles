@@ -14,7 +14,7 @@ git clone --recursive https://github.com/EddCode/vimrc.git ~/.dotvim
 
 echo "Intalling vim config files"
 ln -sf $HOME/.dotvim/.vimrc $HOME/.vimrc
-ln -sf $HOME/.dotfiles $HOME/.vim
+ln -sf $HOME/.dotvim $HOME/.vim
 
 
 # Install my tmux config file 
@@ -26,4 +26,8 @@ mkdir $HOME/.nvm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 mkdir .config/fish/functions/nvm.fish
 
-ln -sf ./fish/nvm.fish $HOME/.config/fish/functions/nvm.fish
+ln -sf $HOME/.dotfiles/fish/nvm.fish $HOME/.config/fish/functions/nvm.fish
+ln -sf $HOME/.dotfiles/fish/config.fish $HOME/.config/fish/functions/config.fish
+ln -sf $HOME/.dotfile/fish/fish.fish $HOME/.config/fish/functions/fish.fish
+ln -sf $HOME/.dotfile/fish/fish_prompt.fish $HOME/.config/fish/functions/fish_prompt.fish
+
