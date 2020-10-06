@@ -54,11 +54,11 @@ brew install tmux
 brew install node
 
 # Installs Casks
-brew tap caskroom/cask
+brew tap homebrew/cask
 brew tap homebrew/cask-fonts
 
 # Install font tools.
-brew cask install font-firaCode-nerd-font
+brew cask install font-fira-code-nerd-font
 
 ## Apps I use
 brew cask install docker
