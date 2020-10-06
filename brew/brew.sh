@@ -66,7 +66,6 @@ brew cask install lastpass
 brew cask install microsoft-edge
 brew cask install postman
 brew cask install slack
-brew cask install telegram
 brew cask install whatsapp
 
 # Remove outdated versions from the cellar.
