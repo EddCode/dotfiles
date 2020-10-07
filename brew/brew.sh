@@ -33,23 +33,12 @@ brew install yarn
 echo "Installing go(lang)"
 brew install go
 
-echo "Installing Dart"
-brew tap dart-lang/dart
-brew install dart
-
-echo "Instaling deno"
-brew install deno
-
 # Install fish shell and fisherman
 echo "Install fish and set fish as default shell"
 brew install fish
-curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
-echo /usr/local/bin/fish >> /etc/shells
-chsh -s /usr/local/bin/fish
 
 # Install other useful binaries.
 echo "Install useful binaries"
-brew install git
 brew install tmux
 brew install node
 
@@ -68,5 +57,8 @@ brew cask install postman
 brew cask install slack
 brew cask install whatsapp
 
-# Remove outdated versions from the cellar.
-brew cleanup
+echo "Installing Dart"
+brew tap dart-lang/dart
+brew install dart
+
+
