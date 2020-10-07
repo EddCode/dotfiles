@@ -19,7 +19,7 @@ ln -sf $HOME/.dotvim $HOME/.vim
 
 
 # Install my tmux config file 
-ln -sf ./tmux/.tmux.conf $HOME/.tmux.conf
+ln -sf $HOME/.dotfiles/tmux/.tmux.conf $HOME/.tmux.conf
 
 # Install nvm
 echo "Installing NVM"
@@ -27,11 +27,13 @@ mkdir $HOME/.nvm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 mkdir .config/fish/functions/nvm.fish
 
-ln -sf $HOME/.dotfiles/fish/nvm.fish $HOME/.config/fish/functions/nvm.fish
+ln -sf $HOME/.dotfiles/fish/config.fish $HOME/.config/fish/functions/config.fish
+ln -sf $HOME/.dotfiles/fish/fish.sh $HOME/.config/fish/functions/fish.sh
+ln -sf $HOME/.dotfiles/fish/fish_prompt.fish $HOME/.config/fish/functions/prompt.fish
 
 echo "Setting up fish and fisher"
 curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
-echo /usr/local/bin/fish >> /etc/shells
+sudo echo /usr/local/bin/fish >> /etc/shells
 chsh -s /usr/local/bin/fish
 
 
