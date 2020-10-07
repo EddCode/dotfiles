@@ -3,10 +3,9 @@ source brew/brew.sh
 
 # Install fish plugins and set my config file
 echo "Moving config.fish"
-ln -sf $HOME/.dotfiles/fish/config.fish $HOME/.config/fish/config.fish
-ln -sf $HOME/.dotfiles/fish/fish.fish $HOME/.config/fish/functions/fish.fish
-echo "Movin fish_prompt_config.fish"
 ln -sf $HOME/.dotfiles/fish/fish_prompt.fish $HOME/.config/fish/functions/fish_prompt.fish
+ln -sf $HOME/.dotfiles/fish/fish.fish $HOME/.config/fish/functions/fish.fish
+ln -sf $HOME/.dotfiles/fish/config.fish $HOME/.config/fish/functions/config.fish
 ln -sf $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
 
 # Cloning vim config & plugins
