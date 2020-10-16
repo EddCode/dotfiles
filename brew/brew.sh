@@ -25,6 +25,9 @@ brew upgrade
 # Save Homebrew's installed location.
 BREW_PREFIX=$(brew --prefix)
 
+brew install git
+brew install gh
+
 # Install `wget` with IRI support.
 echo "Installing node"
 brew install node

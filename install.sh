@@ -35,4 +35,4 @@ ln -sf $HOME/.dotfiles/fish/config.fish $HOME/.config/fish/functions/config.fish
 ln -sf $HOME/.dotfiles/fish/fish.sh $HOME/.config/fish/functions/fish.sh
 ln -sf $HOME/.dotfiles/fish/fish_prompt.fish $HOME/.config/fish/functions/prompt.fish
 
-
+gh auth login
