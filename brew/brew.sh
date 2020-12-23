@@ -35,6 +35,7 @@ brew install yarn
 
 echo "Installing go(lang)"
 brew install go
+brew install --cask flutter
 
 # Install fish shell and fisherman
 echo "Install fish and set fish as default shell"
