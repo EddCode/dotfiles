@@ -21,7 +21,7 @@ curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fi
 sudo echo /usr/local/bin/fish >> /etc/shells
 chsh -s /usr/local/bin/fish
 
-# Install my tmux config file 
+# Install my tmux config file
 ln -sf $HOME/.dotfiles/tmux/.tmux.conf $HOME/.tmux.conf
 
 # Install nvm
@@ -34,5 +34,7 @@ ln -sf $HOME/.dotfiles/fish/nvm.fish $HOME/.conf/fish/functions/nvm.fish
 ln -sf $HOME/.dotfiles/fish/config.fish $HOME/.config/fish/functions/config.fish
 ln -sf $HOME/.dotfiles/fish/fish.sh $HOME/.config/fish/functions/fish.sh
 ln -sf $HOME/.dotfiles/fish/fish_prompt.fish $HOME/.config/fish/functions/prompt.fish
+
+ln -sf $HOME/.dotfiles/.editorconfig $HOME/.editorconfig
 
 gh auth login
