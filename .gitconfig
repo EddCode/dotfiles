@@ -12,6 +12,8 @@
 	po = push origin
 	alias = config --global --get-regex alias
 	lod = log --oneline --decorate
+	lodg = log --oneline --decorate --graph
+	logline = log  --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [pull]
 	rebase = true
 [filter "lfs"]
@@ -19,3 +21,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[init]
+	defaultBranch = main

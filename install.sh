@@ -1,6 +1,8 @@
 #install Brew and more app using Brew
 source brew/brew.sh
 
+sudo gem install cocoapods
+
 # Install fish plugins and set my config file
 echo "Moving config.fish"
 ln -sf $HOME/.dotfiles/fish/fish_prompt.fish $HOME/.config/fish/functions/fish_prompt.fish

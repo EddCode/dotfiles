@@ -31,6 +31,7 @@ brew install git
 echo "Installing node"
 brew install node
 brew install yarn
+brew install watchman
 
 echo "Installing go(lang)"
 brew install go
