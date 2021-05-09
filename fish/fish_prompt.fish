@@ -31,7 +31,7 @@ set __fish_git_prompt_char_untrackedfiles ' 🔍  '
 set __fish_git_prompt_char_upstream_ahead ' ☝️  '
 set __fish_git_prompt_char_upstream_behind ' 👇  '
 set __fish_git_prompt_char_upstream_diverged ' 🚧  '
-set __fish_git_prompt_char_upstream_equal ' 💯 ' 
+set __fish_git_prompt_char_upstream_equal ' 💯 '
 
 #Set prompt_theme
 function fish_prompt
@@ -55,7 +55,7 @@ function fish_prompt
   set -l cwd $cyan(basename (prompt_pwd))$normal
 
   printf '%s ' (__fish_git_prompt)
-  echo -n "🐠  "
+  echo -n "🕸  "
   set_color normal
 
 end
