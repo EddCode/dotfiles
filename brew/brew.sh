@@ -54,12 +54,11 @@ brew cask install font-fira-code-nerd-font
 
 ## Apps I use
 brew cask install docker
-brew cask install lastpass
 brew cask install microsoft-edge
-brew cask install postman
+#brew cask install postman
 
 echo "Installing Dart"
-brew tap dart-lang/dart
-brew install dart
+#brew tap dart-lang/dart
+#brew install dart
 
 
