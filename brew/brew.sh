@@ -32,6 +32,7 @@ echo "Installing node"
 brew install node
 brew install yarn
 brew install watchman
+brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
 
 echo "Installing go(lang)"
 brew install go
