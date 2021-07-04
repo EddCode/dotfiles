@@ -50,14 +50,14 @@ brew tap homebrew/cask
 brew tap homebrew/cask-fonts
 
 # Install font tools.
-brew cask install font-fira-code-nerd-font
+brew install font-fira-code-nerd-font
 
 ## Apps I use
-brew cask install docker
-brew cask install microsoft-edge
+brew install docker
+brew install microsoft-edge
 #brew cask install postman
 
-echo "Installing Dart"
+#echo "Installing Dart"
 #brew tap dart-lang/dart
 #brew install dart
 
