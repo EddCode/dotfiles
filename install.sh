@@ -29,9 +29,8 @@ ln -sf $HOME/.dotfiles/tmux/.tmux.conf $HOME/.tmux.conf
 # Install nvm
 echo "Installing NVM"
 fisher add edc/bass
-mkdir $HOME/.nvm
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
-ln -sf $HOME/.dotfiles/fish/nvm.fish $HOME/.conf/fish/functions/nvm.fish
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+ln -sf $HOME/.dotfiles/fish/nvm.fish $HOME/.config/fish/functions/nvm.fish
 
 ln -sf $HOME/.dotfiles/fish/config.fish $HOME/.config/fish/functions/config.fish
 ln -sf $HOME/.dotfiles/fish/fish.sh $HOME/.config/fish/functions/fish.sh
