@@ -1,0 +1,26 @@
+root=tru
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Set default charset
+[*.{js,go,dart}]
+charset = utf-8
+
+[*.go]
+indent_style = space
+indent_size = 4
+
+[*.{json, yaml}]
+indent_style = space
+indent_size = 4
+
+[{package.json,.dockercompose.yaml}]
+indent_style = space
+indent_size = 2
+
+[*.{js,dart,html,css}]
+indent_style = space
+indent_size = 2

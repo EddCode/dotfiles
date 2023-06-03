@@ -1,0 +1,27 @@
+[user]
+	email = edgar.figueroa.gtz@gmail.com
+	user = EddCode
+	name = Edgar Figueroa
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	unstage = reset HEAD --
+	br = branch
+	last = log -1 HEAD
+	alias = config --global --get-regex alias
+	lodg = log --oneline --decorate --graph
+	lod = !git log --pretty=format:\"%C(magenta)%h%Creset -%C(green)%d%Creset %s %C(dim cyan)(%cr) [%an]\" --abbrev-commit -30
+	save = !git add -A && git commit
+	done = !git push origin HEAD
+	get = !git pull origin HEAD
+	done-force = !git push origin -f HEAD
+[pull]
+	rebase = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[init]
+	defaultBranch = main
