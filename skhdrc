@@ -7,10 +7,10 @@
 #alt - l : yabai -m window --focus east
 
 #change focus between external displays (left, right, top, bottom)
-alt - h  : yabai -m display --focus west
-alt - l : yabai -m display --focus east
-alt - j  : yabai -m display --focus south
-alt - k    : yabai -m display --focus north
+shift - h  : yabai -m display --focus west
+shift - l : yabai -m display --focus east
+shift - j  : yabai -m display --focus south
+shift - k    : yabai -m display --focus north
 
 # move window to display left, right, top and bottom
 shift + alt - left  : yabai -m window --display west; yabai -m display --focus west;
