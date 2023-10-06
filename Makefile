@@ -15,7 +15,6 @@ sync:
 
 	ln -sf $(PWD)/editorconfig ~/.editorconfig
 	ln -sf $(PWD)/gitconfig ~/.gitconfig
-	ln -sf $(PWD)/init.vim ~/.config/nvim/init.vim
 	ln -sf $(PWD)/yabairc ~/.config/yabai/yabairc
 	ln -sf $(PWD)/skhdrc ~/.config/skhd/skhdrc
 
