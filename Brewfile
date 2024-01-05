@@ -8,7 +8,7 @@ tap "skeema/tap"
 tap "homebrew/cask-fonts"
 
 
-brew "neovim"
+brew "bat"
 brew "vim"
 brew "git"
 brew "node"
@@ -25,6 +25,7 @@ brew "cmake"
 brew "curl"
 brew "watch"
 brew "wget"
+brew "tree"
 brew "gh"
 
 cask "font-fira-code-nerd-font"
