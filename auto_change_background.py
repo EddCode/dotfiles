@@ -2,15 +2,18 @@
 
 import asyncio
 import iterm2
+import subprocess
 
 async def update(connection, theme):
     # Themes have space-delimited attributes, one of which will be light or dark.
     parts = theme.split(" ")
 
     if "dark" in parts:
-        preset = await iterm2.ColorPreset.async_get(connection, "andromeda")
+        preset = await iterm2.ColorPreset.async_get(connection, "Batman")
+        subprocess.call(["tmux", "source-file", "/Users/edgarfigueroa/.tmux/tmux-dark.conf"])
     else:
         preset = await iterm2.ColorPreset.async_get(connection, "ayuLight")
+        subprocess.call(["tmux", "source-file", "/Users/edgarfigueroa/.tmux/tmux-light.conf"])
 
     # Update the list of all profiles and iterate over them.
     profiles=await iterm2.PartialProfile.async_query(connection)
