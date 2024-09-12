@@ -2,6 +2,7 @@
 	email = edgar.figueroa.gtz@gmail.com
 	user = EddCode
 	name = Edgar Figueroa
+	signingkey = D18AF2330AE69CE4
 [alias]
 	co = checkout
 	ci = commit
@@ -16,6 +17,7 @@
 	done = !git push origin HEAD
 	get = !git pull origin HEAD
 	done-force = !git push origin -f HEAD
+	remove-branches-except = "!f() { git branch | grep -v \"$1*\" | xargs git branch -D; }; f"
 [pull]
 	rebase = true
 [filter "lfs"]
@@ -29,3 +31,4 @@
 	autoSetupRemote = true
 [commit]
 	verbose = true
+	gpgSign = true
