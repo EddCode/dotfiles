@@ -1,1 +1,1 @@
-/Users/edgarfigueroagutierrez/.dotfiles/fish/fish.fish
+/Users/edgarfigueroa/dotfiles/fish/fish.fish
