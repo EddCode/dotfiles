@@ -7,7 +7,6 @@ tap "homebrew/services"
 tap "skeema/tap"
 tap "homebrew/cask-fonts"
 
-
 brew "bat"
 brew "vim"
 brew "git"
@@ -27,8 +26,8 @@ brew "watch"
 brew "wget"
 brew "tree"
 brew "gh"
+brew "go"
 brew "openjdk@17"
-brew "openjdk@22"
 brew "openjdk@21"
 
 cask "font-fira-code-nerd-font"

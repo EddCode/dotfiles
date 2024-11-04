@@ -9,9 +9,12 @@ sync:
 	mkdir -p ~/.tmux/
 	mkdir -p ~/Library/LaunchAgents
 
-	ln -sf $(PWD)/fish/functions ~/.config/fish/functions
+	ln -sf $(PWD)/fish/alacritty-theme.fish ~/.config/fish/function/alacritty-theme.fish
+	ln -sf $(PWD)/fish/change_background.fish ~/.config/fish/function/change_background.fish
 	ln -sf $(PWD)/fish/fish.fish ~/.config/fish/functions/fish.fish
-	ln -sf $(PWD)/fish/config.fish ~/.config/fish/functions/config.fish
+	ln -sf $(PWD)/fish/removepath ~/.config/fish/functions/removepath.fish
+	ln -sf $(PWD)/fish/config.fish ~/.config/fish/config.fish
+	ln -sf ${pwd}/fish/fnm.fish ~/.config/fish/conf.d/fnm.fish
 
 	ln -sf $(PWD)/editorconfig ~/.editorconfig
 	ln -sf $(PWD)/gitconfig ~/.gitconfig

@@ -1,13 +1,25 @@
-# Base16 Shell
+function java17
+    set -x JAVA_HOME (brew --prefix openjdk@17)/libexec/openjdk.jdk/Contents/Home
+    echo "Switched to Java 17"
+end
 
-# ----GENERAL
-set -x EDITOR vim
-set -x LC_ALL en_US.UTF-8
+function java21
+    set -x JAVA_HOME (brew --prefix openjdk@21)/libexec/openjdk.jdk/Contents/Home
+    echo "Switched to Java 21"
+end
 
-# ----NODE
-set -x NODE_OPTIONS --max_old_space_size=4096
+function java22
+    set -x JAVA_HOME (brew --prefix openjdk@22)/libexec/openjdk.jdk/Contents/Home
+    echo "Switched to Java 22"
+end
 
-# --- GO
-set -gx GOPATH $HOME/Proyects/go
+set -x JAVA_HOME (brew --prefix openjdk@21)/libexec/openjdk.jdk/Contents/Home
 
-set -g fish_user_paths "/usr/local/opt/imagemagick@6/bin" $fish_user_paths
+# Zenventory app environment variables
+set -x ZENVENTORY_FIREBASE_APP_ID marelyn-c5407 #1:1083998552847:web:eb1bbcbb80cb4cd430347a
+set -x ZENVENTORY_FIREBASE_SETTING_FILE /Users/edgarfigueroa/Projects/NirvanaCodeZen/Inventory-api/marelyn-firebase-adminsdk.json
+
+# ANDROID
+set -x ANDROID_HOME /opt/android_sdk
+set -x ANDROID_SDK_ROOT /opt/android_sdk
+
