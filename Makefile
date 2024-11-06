@@ -32,9 +32,6 @@ sync:
 
 	sh install.sh
 
-	ln -sf ~/.dotvim/.vimrc ~/.vimrc
-	ln -sf ~/.dotvim ~/.vim
-
 clean:
 	rm -f ~/.config/alacritty/alacritty.yml
 	rm -f ~/.config/alacritty/color.yml
