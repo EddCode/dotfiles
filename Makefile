@@ -3,15 +3,15 @@ all: sync
 sync:
 	mkdir -p ~/.config/alacritty
 	mkdir -p ~/.config/fish
-	mkdir -p ~/.config/fish/function
+	mkdir -p ~/.config/fish/functions
 	mkdir -p ~/.config/nvim
 	mkdir -p ~/.config/yabai
 	mkdir -p ~/.config/skhd
 	mkdir -p ~/.tmux/
 	mkdir -p ~/Library/LaunchAgents
 
-	ln -sf $(PWD)/fish/alacritty-theme.fish ~/.config/fish/function/alacritty-theme.fish
-	ln -sf $(PWD)/fish/change_background.fish ~/.config/fish/function/change_background.fish
+	ln -sf $(PWD)/fish/alacritty-theme.fish ~/.config/fish/functions/alacritty-theme.fish
+	ln -sf $(PWD)/fish/change_background.fish ~/.config/fish/functions/change_background.fish
 	ln -sf $(PWD)/fish/fish.fish ~/.config/fish/functions/fish.fish
 	ln -sf $(PWD)/fish/removepath ~/.config/fish/functions/removepath.fish
 	ln -sf $(PWD)/fish/config.fish ~/.config/fish/config.fish
