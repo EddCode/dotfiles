@@ -3,6 +3,7 @@ all: sync
 sync:
 	mkdir -p ~/.config/alacritty
 	mkdir -p ~/.config/fish
+	mkdir -p ~/.config/fish/function
 	mkdir -p ~/.config/nvim
 	mkdir -p ~/.config/yabai
 	mkdir -p ~/.config/skhd
