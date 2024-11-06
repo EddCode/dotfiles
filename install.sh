@@ -11,6 +11,9 @@ echo PATH="$PATH=/opt/homebrew/bin" >> .zshrc
 echo " ********* Cloning vim repositories ********* "
 git clone --recursive https://github.com/EddCode/vimrc.git ~/.dotvim
 
+ln -sf ~/.dotvim/.vimrc ~/.vimrc
+ln -sf ~/.dotvim ~/.vim
+
 echo " ******** Cloning tmux plugins ********* "
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
