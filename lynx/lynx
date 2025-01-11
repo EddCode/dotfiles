@@ -1,0 +1,21 @@
+#!/usr/bin/env fish
+
+set lynxpath /opt/homebrew/bin/lynx
+set useragent "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_0) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.79 Safari/537.1 Lynx"
+
+if test -e "$HOME/.config/lynx/lynx.cfg"
+  set -x LYNX_CFG "$HOME/.config/lynx/lynx.cfg"
+end
+
+if test -e "$HOME/.config/lynx/lynx.lss"
+  set -x LYNX_LSS "$HOME/.config/lynx/lynx.lss"
+end
+
+if not test -x "$lynxpath"
+  echo "Doesn't look like lynx is installed."
+  exit 1
+end
+
+echo "Using $lynxpath with useragent $useragent and config $LYNX_CFG and lss $LYNX_LSS."
+
+exec "$lynxpath" --useragent="$useragent" $argv

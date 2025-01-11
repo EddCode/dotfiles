@@ -1,0 +1,19 @@
+#!/usr/bin/env fish
+
+set -l cyan (set_color -o cyan)
+set -l gold (set_color -o gold)
+set -l reset (set_color normal)
+
+if not type -q lynx
+  echo "Need to install lynx."
+  exit 1
+end
+
+mkdir -p ~/.config/
+rm -rf ~/.config/lynx
+ln -s (pwd) ~/.config/lynx
+ls -l ~/.config/lynx
+
+echo -e "$gold Now just put lynx into your PATH or update your PATH to look something like the following:"
+echo ""
+echo -e "$cyan export PATH=\"(pwd):\$PATH\"$reset"

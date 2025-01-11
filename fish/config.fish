@@ -23,3 +23,24 @@ set -x ZENVENTORY_FIREBASE_SETTING_FILE /Users/edgarfigueroa/Projects/NirvanaCod
 set -x ANDROID_HOME /opt/android_sdk
 set -x ANDROID_SDK_ROOT /opt/android_sdk
 
+
+function duck -d "Search DuckDuckGo from the terminal"
+    echo $argv
+    function urlencode
+        echo $argv | sed 's/ /%20/g'
+    end
+
+echo $argv
+    set url "https://lite.duckduckgo.com/lite?kd=-1&kp=-1&q=$argv"
+    exec lynx $url
+end
+
+function g -d "Search Google from the terminal"
+    echo $argv
+    function urlencode
+        echo $argv | sed 's/ /%20/g'
+    end
+
+    set url "https://www.google.com/search?q=$argv"
+    exec lynx $url
+end
