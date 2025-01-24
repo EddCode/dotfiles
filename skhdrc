@@ -1,10 +1,10 @@
 # -- Changing Window Focus --
 
 # change window focus within space
-alt - j : yabai -m window --focus south
-alt - k : yabai -m window --focus north
-alt - h : yabai -m window --focus west
-alt - l : yabai -m window --focus east
+ctrl - j : yabai -m window --focus south
+ctrl - k : yabai -m window --focus north
+ctrl - h : yabai -m window --focus west
+ctrl - l : yabai -m window --focus east
 
 #change focus between external displays (left, right, top, bottom)
 shift+ctrl - h  : yabai -m display --focus west
@@ -13,10 +13,10 @@ shift+ctrl - j  : yabai -m display --focus south
 shift+ctrl - k    : yabai -m display --focus north
 
 # move window to display left, right, top and bottom
-shift + alt - left  : yabai -m window --display west; yabai -m display --focus west;
-shift + alt - right : yabai -m window --display east; yabai -m display --focus east;
-shift + alt - down : yabai -m window --display south; yabai -m display --focus south;
-shift + alt - up : yabai -m window --display north; yabai -m display --focus north;
+shift + ctrl  - left  : yabai -m window --display west; yabai -m display --focus west;
+shift + ctrl  - right : yabai -m window --display east; yabai -m display --focus east;
+shift + ctrl  - down : yabai -m window --display south; yabai -m display --focus south;
+shift + ctrl  - up : yabai -m window --display north; yabai -m display --focus north;
 
 # -- Modifying the Layout --
 
@@ -32,14 +32,7 @@ shift + alt - x : yabai -m space --mirror x-axis
 # toggle window float
 shift + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
 
-
 # -- Modifying Window Size --
-
-# maximize a window
-shift + alt - m : yabai -m window --toggle zoom-fullscreen
-
-# balance out tree of windows (resize to occupy same area)
-shift + alt - e : yabai -m space --balance
 
 # -- Moving Windows Around --
 

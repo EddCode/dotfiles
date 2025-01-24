@@ -1,33 +1,20 @@
-# default layout (can be bsp, stack or float)
-yabai -m config layout float --grid 4:4:1:1:2:2
+# use the "tiled" layout that we want to try
+# (Default: float, which is "normal" window behavior.)
+yabai -m config layout bsp
 
-# new window spawns to the right if vertical split, or bottom if horizontal split
-yabai -m config window_placement second_child
-
-# padding set to 12px
-yabai -m config top_padding 5
-yabai -m config bottom_padding 5
-yabai -m config left_padding 5
-yabai -m config right_padding 5
-yabai -m config window_gap 5
-
-# -- mouse settings --
-
-# center mouse on window with focus
+# Mouse modifiers
+yabai -m config mouse_modifier ctrl
 yabai -m config mouse_follows_focus on
+yabai -m config focus_follows_mouse autofocus
 
-# modifier for clicking and dragging with mouse
-yabai -m config mouse_modifier alt
-# set modifier + left-click drag to move window
-yabai -m config mouse_action1 move
-# set modifier + right-click drag to resize window
-yabai -m config mouse_action2 resize
 
-# when window is dropped in center of another window, swap them (on edges it will split it)
-yabai -m mouse_drop_action swap
+# Windows behavior settings
+yabai -m config mouse_drop_action stack
+yabai -m config window_shadow float
+yabai -m config window_opacity on
+yabai -m config active_window_opacity 1.0
+yabai -m config normal_window_opacity 0.9)
 
-# disable specific apps
-yabai -m rule --add app="^System Settings$" manage=off
-yabai -m rule --add app="^Calculator$" manage=off
-yabai -m rule --add app="^Karabiner-Elements$" manage=off
-yabai -m rule --add app="^QuickTime Player$" manage=off
+# Setup rules for applications don't work well with yabai
+yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
