@@ -1,20 +1,42 @@
-# use the "tiled" layout that we want to try
-# (Default: float, which is "normal" window behavior.)
-yabai -m config layout bsp
+# global settings
+yabai -m config mouse_modifier               ctrl
+yabai -m config mouse_follows_focus          on
+yabai -m config focus_follows_mouse          on
+yabai -m config focus_follows_mouse          autofocus
+yabai -m config window_origin_display        default
+yabai -m config window_placement             second_child
+yabai -m config window_topmost               off
+yabai -m config window_shadow                on
+yabai -m config window_opacity               off
+yabai -m config window_opacity_duration      0.0
+yabai -m config active_window_opacity        1.0
+yabai -m config normal_window_opacity        0.90
+yabai -m config window_border                off
+yabai -m config window_border_width          6
+yabai -m config active_window_border_color   0xff775759
+yabai -m config normal_window_border_color   0xff555555
+yabai -m config insert_feedback_color        0xffd75f5f
+yabai -m config split_ratio                  0.50
+yabai -m config auto_balance                 off
+yabai -m config mouse_modifier               fn
+yabai -m config mouse_action1                move
+yabai -m config mouse_action2                resize
+yabai -m config mouse_drop_action            swap
 
-# Mouse modifiers
-yabai -m config mouse_modifier ctrl
-yabai -m config mouse_follows_focus on
-yabai -m config focus_follows_mouse autofocus
+# general space settings
+yabai -m config layout                       bsp
+yabai -m config top_padding                  15
+yabai -m config bottom_padding               15
+yabai -m config left_padding                 15
+yabai -m config right_padding                15
+yabai -m config window_gap                   15
 
-
-# Windows behavior settings
-yabai -m config mouse_drop_action stack
-yabai -m config window_shadow float
-yabai -m config window_opacity on
-yabai -m config active_window_opacity 1.0
-yabai -m config normal_window_opacity 0.9)
-
-# Setup rules for applications don't work well with yabai
+# apps to not manage (ignore)
 yabai -m rule --add app="^System Preferences$" manage=off
-yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^Archive Utility$" manage=off
+yabai -m rule --add app="^Wally$" manage=off
+yabai -m rule --add app="^Pika$" manage=off
+yabai -m rule --add app="^balenaEtcher$" manage=off
+yabai -m rule --add app="^Creative Cloud$" manage=off
+yabai -m rule --add app="^Logi Options$" manage=off
+yabai -m rule --add app="^Alfred Preferences$" manage=off
