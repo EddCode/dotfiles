@@ -14,6 +14,7 @@ sync:
 	ln -sf $(PWD)/fish/change_background.fish ~/.config/fish/functions/change_background.fish
 	ln -sf $(PWD)/fish/fish.fish ~/.config/fish/functions/fish.fish
 	ln -sf $(PWD)/fish/removepath ~/.config/fish/functions/removepath.fish
+	ln -sf $(PWD)/fish/functions/fish_prompt.fish ~/.config/fish/functions/fish_prompt.fish
 	ln -sf $(PWD)/fish/config.fish ~/.config/fish/config.fish
 	ln -sf ${pwd}/fish/fnm.fish ~/.config/fish/conf.d/fnm.fish
 
