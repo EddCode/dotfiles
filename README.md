@@ -47,19 +47,3 @@ Change a key bind action to `<C-t>` and also has an integration with N/vim. It a
 ## Vim
 Download repository wich has a some vimrc configs and a some plugins
 * to see wich plugins and configuration has it, take a look [EddCode/vimrc](https://github.com/EddCode/vimrc)
-
-![Drag Racing](./Preview-dark.png)
-![Drag Racing](./Preview-light.png)
-
-<pre>
-  In this repo there a python script that helps switching
-  iterm2 background color base on the system.
-  ou can import <a href='https://github.com/EddCode/dotfiles/blob/main/auto_change_background.py'>auto_change_background.py</a> script to iterm to automatic switching
-  background colors.
-  <a href='https://iterm2.com/python-api/tutorial/running.html'>Check how you can do it.</a>
-
-  Be free to modify the colors into the script.
-  Actualy its used <a href='https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Batman.itermcolors'>Batman</a> and <a href='https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Alabaster.itermcolors'>alabaster</a>.
-
-  You can take a look to more color themes <a href='https://iterm2colorschemes.com'>here</a>.
-<pre>
