@@ -39,7 +39,7 @@ return {
       }
 
       local lspconfig = require("lspconfig")
-      lspconfig.tsserver.setup {
+      lspconfig.ts_ls.setup {
         signs = signs,
       }
       lspconfig.lua_ls.setup {
