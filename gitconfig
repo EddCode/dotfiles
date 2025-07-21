@@ -34,5 +34,5 @@
 	gpgsign = false
 [core]
   editor = nvim
-  autocrlf = true
+	autocrlf = input
   whitespace = cr-at-eol
