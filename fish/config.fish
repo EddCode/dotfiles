@@ -44,5 +44,3 @@ function g -d "Search Google from the terminal"
     set url "https://www.google.com/search?q=$argv"
     exec lynx $url
 end
-
-fastfetch
