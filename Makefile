@@ -1,6 +1,7 @@
 all: sync
 
 sync:
+
 	mkdir -p ~/.config/alacritty
 	mkdir -p ~/.config/fish
 	mkdir -p ~/.config/fish/functions
@@ -17,6 +18,9 @@ sync:
 	ln -sf $(PWD)/fish/functions/fish_prompt.fish ~/.config/fish/functions/fish_prompt.fish
 	ln -sf $(PWD)/fish/config.fish ~/.config/fish/config.fish
 	ln -sf ${pwd}/fish/fnm.fish ~/.config/fish/conf.d/fnm.fish
+link:
+	@echo "Creating simbolic links"
+	ln -sf $(PWD)/fish ~/.config/fish
 
 	ln -sf $(PWD)/editorconfig ~/.editorconfig
 	ln -sf $(PWD)/gitconfig ~/.gitconfig
@@ -31,18 +35,14 @@ sync:
 	ln -sf $(PWD)/color.yml ~/.config/alacritty/color.yml
 	ln -sf $(PWD)/io.arslan.dark-mode-notify.plist ~/Library/LaunchAgents/io.arslan.dark-mode-notify.plist
 
-	sh install.sh
-
 clean:
-	rm -f ~/.config/alacritty/alacritty.yml
-	rm -f ~/.config/alacritty/color.yml
-	rm -f ~/.config/fish/config.fish
-	rm -f ~/.config/nvim/init.vim
-	rm -rf ~/.dotvim
-	rm -rf ~/.vim
-	rm -r ~/.vimrc
-	rm -f ~/.tmux.conf
-	rm -f ~/.gitconfig
-	rm -f ~/Library/LaunchAgents/io.arslan.dark-mode-notify.plist
+	unlink ~/.editorconfig
+	unlink ~/.gitconfig
+	unlink ~/.config/*
+	unlink ~/.config/alacritty/alacritty.yml
+	unlink ~/.config/alacritty/color.yml
+	unlink ~/Library/LaunchAgents/io.arslan.dark-mode-notify.plist
 
-.PHONY: all clean sync
+
+
+.PHONY: all sync
