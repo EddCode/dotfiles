@@ -28,6 +28,8 @@ tide configure
 echo " ********* enable dark mode notify service ********* "
 gh auth login
 
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 gh repo clone EddCode/nvimrc ~/nvim
 ln -sf  ~/nvim ~/.config/nvim
 

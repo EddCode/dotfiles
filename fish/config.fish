@@ -13,7 +13,7 @@ function java22
     echo "Switched to Java 22"
 end
 
-set -x JAVA_HOME (brew --prefix openjdk@21)/libexec/openjdk.jdk/Contents/Home
+set -x JAVA_HOME (brew --prefix openjdk@17)/libexec/openjdk.jdk/Contents/Home
 
 # Zenventory app environment variables
 set -x ZENVENTORY_FIREBASE_APP_ID marelyn-c5407 #1:1083998552847:web:eb1bbcbb80cb4cd430347a
@@ -21,7 +21,14 @@ set -x ZENVENTORY_FIREBASE_SETTING_FILE /Users/edgarfigueroa/Projects/NirvanaCod
 
 # ANDROID
 set -x ANDROID_HOME /opt/android_sdk
-set -x ANDROID_SDK_ROOT /opt/android_sdk
+
+set -x ANDROID_CMD $ANDROID_HOME/cmdline-tools/latest/bin
+set -x ANDROID_EMULATOR $ANDROID_HOME/emulator
+set -x ANDROID_TOOLS $ANDROID_HOME/tools/bin
+set -x ANDROID_PLATFORM_TOOLS $ANDROID_HOME/platform-tools
+
+
+set -x PATH $PATH:$ANDROID_CMD:$ANDROID_EMULATOR:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS
 
 
 function duck -d "Search DuckDuckGo from the terminal"
