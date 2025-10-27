@@ -15,6 +15,8 @@ link:
 	ln -sf $(PWD)/yabairc ~/.config/yabai/yabairc
 	ln -sf $(PWD)/skhdrc ~/.config/skhd/skhdrc
 
+	ln -sf $(PWD)/claude/agents ~/.claude/agents
+
 	ln -sf $(PWD)/tmux/tmux.conf ~/.tmux.conf
 
 	ln -sf $(PWD)/alacritty.yml ~/.config/alacritty/alacritty.yml
