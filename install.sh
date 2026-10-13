@@ -33,5 +33,4 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 gh repo clone EddCode/nvimrc ~/nvim
 ln -sf  ~/nvim ~/.config/nvim
 
-yabai --start-service
-sdkh --start-service
+open -a AeroSpace

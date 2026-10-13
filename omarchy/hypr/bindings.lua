@@ -29,7 +29,7 @@
 -- o.bind("SUPER + PERIOD", nil, "omarchy-shell shell toggle omarchy.emojis")
 
 -- ---------------------------------------------------------------------------
--- yabai/skhd-style window management (ported from ../../skhdrc).
+-- Window management on ALT, mirrored on macOS by ../../aerospace.toml.
 -- Omarchy's own SUPER bindings are left untouched.
 -- ---------------------------------------------------------------------------
 
@@ -48,11 +48,11 @@ for key, direction in pairs(directions) do
   -- shift + alt - hjkl: swap windows.
   o.bind("SHIFT + ALT + " .. key, "Swap window " .. name, hl.dsp.window.swap({ direction = direction }))
 
-  -- ctrl + alt - hjkl: move window and split (yabai --warp).
+  -- ctrl + alt - hjkl: move window and split.
   o.bind("CTRL + ALT + " .. key, "Move window " .. name, hl.dsp.window.move({ direction = direction }))
 
-  -- skhd used shift+ctrl - hjkl for displays. On Linux those keys belong to
-  -- apps (word selection, browser devtools), so displays live on SUPER+CTRL+ALT.
+  -- Displays live on SUPER+CTRL+ALT: shift+ctrl - hjkl belongs to apps on
+  -- Linux (word selection, browser devtools).
   o.bind("SUPER + CTRL + ALT + " .. key, "Focus monitor " .. name, hl.dsp.focus({ monitor = direction }))
 end
 
@@ -68,13 +68,12 @@ end
 -- shift + alt - r: rotate layout.
 o.bind("SHIFT + ALT + R", "Rotate split", hl.dsp.layout("rotatesplit"))
 
--- shift + alt - y / x: yabai mirrors the whole tree; dwindle can only flip the
--- current split, so these swap its two sides / change its orientation.
+-- shift + alt - y / x: dwindle cannot mirror the whole tree, so these swap the
+-- two sides of the current split / change its orientation.
 o.bind("SHIFT + ALT + Y", "Flip split sides", hl.dsp.layout("swapsplit"))
 o.bind("SHIFT + ALT + X", "Flip split orientation", hl.dsp.layout("togglesplit"))
 
--- shift + alt - t: toggle float, centered at half the monitor size
--- (yabai --toggle float --grid 4:4:1:1:2:2).
+-- shift + alt - t: toggle float, centered at half the monitor size.
 o.bind("SHIFT + ALT + T", "Toggle centered floating window", function()
   hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
 
@@ -99,5 +98,5 @@ for workspace = 1, 9 do
   )
 end
 
--- ctrl + alt - r restarted yabai; here it reloads Hyprland.
+-- ctrl + alt - r: reload Hyprland.
 o.bind("CTRL + ALT + R", "Reload Hyprland", "hyprctl reload")

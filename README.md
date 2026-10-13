@@ -30,7 +30,9 @@ The same `make` works on [Omarchy](https://omarchy.org): the Makefile detects th
 Existing files are kept as `*.bak.<timestamp>` before linking. `omarchy bar ...` replaces the `shell.json` symlink with a regular file; run `make adopt` to copy it back into the repo. The bar uses the [omarchy-pods](https://github.com/thisisgm/omarchy-pods) plugin, which is installed separately.
 
 ### Window management keys
-`omarchy/hypr/bindings.lua` ports `skhdrc` to Hyprland, on top of Omarchy's default `SUPER` bindings.
+The same keys work on both systems: `omarchy/hypr/bindings.lua` for Hyprland (on top of Omarchy's default `SUPER` bindings) and `aerospace.toml` for [AeroSpace](https://github.com/nikitabobko/AeroSpace) on macOS, where `super` is `cmd`.
+
+On macOS, `alt + 1..9` also switches workspace, `shift + alt + x` is unbound, and floating windows are not resized or centered.
 
 | Keys | Action |
 |---|---|

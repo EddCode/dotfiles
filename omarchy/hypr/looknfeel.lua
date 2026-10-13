@@ -49,17 +49,17 @@
 --   },
 -- })
 
--- yabai-style look (ported from ../../yabairc).
+-- Same gaps as ../../aerospace.toml on macOS.
 hl.config({
   general = {
-    -- yabai window_gap / padding of 15. gaps_in applies per window side.
+    -- 15px between windows and around the screen. gaps_in applies per window side.
     gaps_in = 7,
     gaps_out = 15,
   },
 
   decoration = {
-    -- yabai normal_window_opacity 0.90. Omarchy already applies 0.96 to
-    -- unfocused windows through a window rule and the two multiply.
+    -- Unfocused windows at 0.90. Omarchy already applies 0.96 to them
+    -- through a window rule and the two multiply.
     inactive_opacity = 0.94,
   },
 })

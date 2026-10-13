@@ -1,0 +1,109 @@
+# AeroSpace tiling window manager: https://nikitabobko.github.io/AeroSpace/guide
+# Keybindings mirror the Hyprland ones in omarchy/hypr/bindings.lua.
+
+start-at-login = true
+
+# Normalizations keep the tree shallow, which makes hjkl movement predictable.
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+
+# Mouse follows focus.
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+on-focus-changed = ['move-mouse window-lazy-center']
+
+[gaps]
+inner.horizontal = 15
+inner.vertical = 15
+outer.left = 15
+outer.bottom = 15
+outer.top = 15
+outer.right = 15
+
+[mode.main.binding]
+
+# Change window focus within the workspace.
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+# Swap windows.
+alt-shift-h = 'swap left'
+alt-shift-j = 'swap down'
+alt-shift-k = 'swap up'
+alt-shift-l = 'swap right'
+
+# Move window and split.
+ctrl-alt-h = 'move left'
+ctrl-alt-j = 'move down'
+ctrl-alt-k = 'move up'
+ctrl-alt-l = 'move right'
+
+# Focus the monitor on the left/bottom/top/right.
+cmd-ctrl-alt-h = 'focus-monitor left'
+cmd-ctrl-alt-j = 'focus-monitor down'
+cmd-ctrl-alt-k = 'focus-monitor up'
+cmd-ctrl-alt-l = 'focus-monitor right'
+
+# Move window to the monitor on the left/bottom/top/right and follow it.
+cmd-ctrl-alt-left = 'move-node-to-monitor --focus-follows-window left'
+cmd-ctrl-alt-down = 'move-node-to-monitor --focus-follows-window down'
+cmd-ctrl-alt-up = 'move-node-to-monitor --focus-follows-window up'
+cmd-ctrl-alt-right = 'move-node-to-monitor --focus-follows-window right'
+
+# AeroSpace has no tree rotation or mirroring: R flips the split orientation
+# and Y swaps the window with the next one.
+alt-shift-r = 'layout tiles horizontal vertical'
+alt-shift-y = 'swap dfs-next --wrap-around'
+
+# Toggle window float.
+alt-shift-t = 'layout floating tiling'
+
+# Move window to previous / next workspace.
+alt-shift-p = 'move-node-to-workspace --focus-follows-window prev'
+alt-shift-n = 'move-node-to-workspace --focus-follows-window next'
+
+# Move window to workspace N.
+alt-shift-1 = 'move-node-to-workspace --focus-follows-window 1'
+alt-shift-2 = 'move-node-to-workspace --focus-follows-window 2'
+alt-shift-3 = 'move-node-to-workspace --focus-follows-window 3'
+alt-shift-4 = 'move-node-to-workspace --focus-follows-window 4'
+alt-shift-5 = 'move-node-to-workspace --focus-follows-window 5'
+alt-shift-6 = 'move-node-to-workspace --focus-follows-window 6'
+alt-shift-7 = 'move-node-to-workspace --focus-follows-window 7'
+alt-shift-8 = 'move-node-to-workspace --focus-follows-window 8'
+alt-shift-9 = 'move-node-to-workspace --focus-follows-window 9'
+
+# Switch to workspace N. Omarchy uses SUPER+N, but cmd+N belongs to macOS apps.
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+alt-7 = 'workspace 7'
+alt-8 = 'workspace 8'
+alt-9 = 'workspace 9'
+
+# Reload the config.
+ctrl-alt-r = 'reload-config'
+
+# Apps to not manage (float).
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.calculator'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'qemu-system-aarch64'
+run = 'layout floating'

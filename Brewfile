@@ -21,8 +21,7 @@ brew "go"
 brew "openjdk@17"
 brew "lazygit"
 
-brew "koekeishiya/formulae/yabai"
-brew "koekeishiya/formulae/skhd"
+cask "nikitabobko/tap/aerospace"
 
 cask "brave-browser"
 cask "font-fira-code-nerd-font"

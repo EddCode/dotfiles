@@ -51,8 +51,7 @@ link-common:
 	$(call link,$(DOTFILES)/tmux/tmux.conf,$(TMUXCONF))
 
 link-macos:
-	$(call link,$(DOTFILES)/yabairc,$(CONFIG)/yabai/yabairc)
-	$(call link,$(DOTFILES)/skhdrc,$(CONFIG)/skhd/skhdrc)
+	$(call link,$(DOTFILES)/aerospace.toml,$(CONFIG)/aerospace/aerospace.toml)
 	$(call link,$(DOTFILES)/alacritty.yml,$(CONFIG)/alacritty/alacritty.yml)
 	$(call link,$(DOTFILES)/color.yml,$(CONFIG)/alacritty/color.yml)
 	$(call link,$(DOTFILES)/io.arslan.dark-mode-notify.plist,$(HOME)/Library/LaunchAgents/io.arslan.dark-mode-notify.plist)
@@ -81,8 +80,7 @@ clean-common:
 	$(call unlink,$(TMUXCONF))
 
 clean-macos:
-	$(call unlink,$(CONFIG)/yabai/yabairc)
-	$(call unlink,$(CONFIG)/skhd/skhdrc)
+	$(call unlink,$(CONFIG)/aerospace/aerospace.toml)
 	$(call unlink,$(CONFIG)/alacritty/alacritty.yml)
 	$(call unlink,$(CONFIG)/alacritty/color.yml)
 	$(call unlink,$(HOME)/Library/LaunchAgents/io.arslan.dark-mode-notify.plist)
