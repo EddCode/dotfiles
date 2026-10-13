@@ -98,5 +98,22 @@ for workspace = 1, 9 do
   )
 end
 
+-- ctrl + left / right: previous / next workspace, like macOS. Walks through
+-- workspaces 1..workspace_count even when they are empty and stops at the ends.
+local workspace_count = 5
+
+local function step_workspace(delta)
+  return function()
+    local workspace = hl.get_active_workspace()
+    local target = (workspace and workspace.id or 1) + delta
+    if target >= 1 and target <= workspace_count then
+      hl.dispatch(hl.dsp.focus({ workspace = tostring(target) }))
+    end
+  end
+end
+
+o.bind("CTRL + LEFT", "Previous workspace", step_workspace(-1))
+o.bind("CTRL + RIGHT", "Next workspace", step_workspace(1))
+
 -- ctrl + alt - r: reload Hyprland.
 o.bind("CTRL + ALT + R", "Reload Hyprland", "hyprctl reload")

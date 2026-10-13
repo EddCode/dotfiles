@@ -44,6 +44,7 @@ On macOS, `alt + 1..9` also switches workspace, `shift + alt + x` is unbound, an
 | `shift + alt + t` | Toggle float, centered at half size |
 | `shift + alt + p` / `n` | Move window to previous / next workspace |
 | `shift + alt + 1..9` | Move window to workspace |
+| `ctrl + left` / `right` | Previous / next workspace |
 | `super + ctrl + alt + h/j/k/l` | Focus monitor |
 | `super + ctrl + alt + arrows` | Move window to monitor |
 | `ctrl + alt + r` | Reload Hyprland |

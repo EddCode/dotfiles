@@ -6,6 +6,8 @@ echo " ******** Cloning tmux plugins ********* "
 if [ ! -d ~/.tmux/plugins/tpm ]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
+# Install the plugins listed in tmux.conf (same as prefix + I).
+~/.tmux/plugins/tpm/bin/install_plugins
 
 echo " ******** Cloning nvim config ********* "
 nvim_dir=~/.config/nvim

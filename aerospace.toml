@@ -88,6 +88,11 @@ alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
 
+# Previous / next workspace, same keys as Omarchy. Disable the Mission Control
+# "Move left/right a space" shortcuts in System Settings so they don't compete.
+ctrl-left = 'workspace prev'
+ctrl-right = 'workspace next'
+
 # Reload the config.
 ctrl-alt-r = 'reload-config'
 
