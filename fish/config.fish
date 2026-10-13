@@ -13,7 +13,10 @@ function java22
     echo "Switched to Java 22"
 end
 
-set -x JAVA_HOME (brew --prefix openjdk@21)/libexec/openjdk.jdk/Contents/Home
+# brew only exists on macOS
+if type -q brew
+    set -x JAVA_HOME (brew --prefix openjdk@21)/libexec/openjdk.jdk/Contents/Home
+end
 
 # ANDROID
 set -x ANDROID_HOME /opt/android_sdk

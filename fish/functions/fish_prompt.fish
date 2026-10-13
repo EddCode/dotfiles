@@ -40,13 +40,14 @@ function fish_prompt
   set -l blue (set_color -o blue)
   set -l normal (set_color normal)
 
-  set -l apple ""
+  # U+E100 is my logo, from fonts/eddcode-logo.ttf (two cells wide)
+  set -l logo " "
   set -l cwd $blue(prompt_pwd)
   set -l git $magenta(fish_git_prompt)
-  set -l end $blue"𝄡"
+  set -l end $blue">"
 
 
-  echo -n "$apple $cwd $git"
+  echo -n "$logo $cwd $git"
 
   if not test $last_status -eq 0
     set_color $fish_color_error
