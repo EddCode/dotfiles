@@ -19,6 +19,33 @@ In the repository there is a Makefile file, this will be in charge of executing 
 ```
 
 
+## Omarchy (Linux)
+The same `make` works on [Omarchy](https://omarchy.org): the Makefile detects the system with `uname` and links only what applies. macOS files stay at the repo root, Omarchy ones live in `omarchy/`.
+
+* `omarchy/hypr` → `~/.config/hypr` (Hyprland, linked file by file)
+* `omarchy/omarchy/shell.json` → `~/.config/omarchy/shell.json` (bar layout, idle)
+* `omarchy/alacritty/alacritty.toml` → `~/.config/alacritty/alacritty.toml`
+* `omarchy/install.sh` installs tpm and sets Firefox Developer Edition as default browser
+
+Existing files are kept as `*.bak.<timestamp>` before linking. `omarchy bar ...` replaces the `shell.json` symlink with a regular file; run `make adopt` to copy it back into the repo. The bar uses the [omarchy-pods](https://github.com/thisisgm/omarchy-pods) plugin, which is installed separately.
+
+### Window management keys
+`omarchy/hypr/bindings.lua` ports `skhdrc` to Hyprland, on top of Omarchy's default `SUPER` bindings.
+
+| Keys | Action |
+|---|---|
+| `alt + h/j/k/l` | Focus window |
+| `shift + alt + h/j/k/l` | Swap window |
+| `ctrl + alt + h/j/k/l` | Move window and split |
+| `shift + alt + r` | Rotate split |
+| `shift + alt + y` / `x` | Flip split sides / orientation |
+| `shift + alt + t` | Toggle float, centered at half size |
+| `shift + alt + p` / `n` | Move window to previous / next workspace |
+| `shift + alt + 1..9` | Move window to workspace |
+| `super + ctrl + alt + h/j/k/l` | Focus monitor |
+| `super + ctrl + alt + arrows` | Move window to monitor |
+| `ctrl + alt + r` | Reload Hyprland |
+
 ## Hombrew
 `brew.sh` file install homebrew if isnt installed and install some utiliies and cask.
 
