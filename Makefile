@@ -70,6 +70,26 @@ adopt:
 		echo "Adopted shell.json"; \
 	fi
 
+# macOS only: remove yabai and skhd (services, packages and configs) and
+# replace them with AeroSpace.
+migrate-aerospace:
+ifeq ($(UNAME),Darwin)
+	@echo "Removing yabai and skhd"
+	-yabai --stop-service
+	-skhd --stop-service
+	-yabai --uninstall-service
+	-skhd --uninstall-service
+	-brew uninstall koekeishiya/formulae/yabai koekeishiya/formulae/skhd
+	-brew untap koekeishiya/formulae
+	rm -rf $(CONFIG)/yabai $(CONFIG)/skhd $(HOME)/.yabairc $(HOME)/.skhdrc
+	@echo "Installing AeroSpace"
+	brew install --cask nikitabobko/tap/aerospace
+	$(call link,$(DOTFILES)/aerospace.toml,$(CONFIG)/aerospace/aerospace.toml)
+	open -a AeroSpace
+else
+	@echo "migrate-aerospace only applies to macOS"
+endif
+
 clean: clean-common clean-$(OS)
 
 clean-common:
@@ -95,4 +115,4 @@ define newline
 
 endef
 
-.PHONY: all sync adopt install install-macos install-omarchy link link-common link-macos link-omarchy clean clean-common clean-macos clean-omarchy
+.PHONY: all sync adopt migrate-aerospace install install-macos install-omarchy link link-common link-macos link-omarchy clean clean-common clean-macos clean-omarchy

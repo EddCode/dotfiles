@@ -25,12 +25,12 @@ The same `make` works on [Omarchy](https://omarchy.org): the Makefile detects th
 * `omarchy/hypr` → `~/.config/hypr` (Hyprland, linked file by file)
 * `omarchy/omarchy/shell.json` → `~/.config/omarchy/shell.json` (bar layout, idle)
 * `omarchy/alacritty/alacritty.toml` → `~/.config/alacritty/alacritty.toml`
-* `omarchy/install.sh` installs tpm and sets Firefox Developer Edition as default browser
+* `omarchy/install.sh` installs tpm, clones [EddCode/nvimrc](https://github.com/EddCode/nvimrc) into `~/.config/nvim` and sets Firefox Developer Edition as default browser
 
 Existing files are kept as `*.bak.<timestamp>` before linking. `omarchy bar ...` replaces the `shell.json` symlink with a regular file; run `make adopt` to copy it back into the repo. The bar uses the [omarchy-pods](https://github.com/thisisgm/omarchy-pods) plugin, which is installed separately.
 
 ### Window management keys
-The same keys work on both systems: `omarchy/hypr/bindings.lua` for Hyprland (on top of Omarchy's default `SUPER` bindings) and `aerospace.toml` for [AeroSpace](https://github.com/nikitabobko/AeroSpace) on macOS, where `super` is `cmd`.
+The same keys work on both systems: `omarchy/hypr/bindings.lua` for Hyprland (on top of Omarchy's default `SUPER` bindings) and `aerospace.toml` for [AeroSpace](https://github.com/nikitabobko/AeroSpace) on macOS, where `super` is `cmd`. A Mac still running yabai and skhd is switched over with `make migrate-aerospace`, which stops and uninstalls both, removes their configs and installs AeroSpace.
 
 On macOS, `alt + 1..9` also switches workspace, `shift + alt + x` is unbound, and floating windows are not resized or centered.
 

@@ -7,6 +7,19 @@ if [ ! -d ~/.tmux/plugins/tpm ]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
+echo " ******** Cloning nvim config ********* "
+nvim_dir=~/.config/nvim
+if git -C $nvim_dir remote get-url origin 2>/dev/null | grep -q 'EddCode/nvimrc'; then
+  echo "nvim config already cloned in $nvim_dir"
+else
+  # Keep whatever is there (Omarchy ships its own nvim config) as a backup.
+  if [ -e $nvim_dir ] || [ -L $nvim_dir ]; then
+    mv $nvim_dir $nvim_dir.bak.$(date +%s)
+  fi
+  git clone git@github.com:EddCode/nvimrc.git $nvim_dir ||
+    git clone https://github.com/EddCode/nvimrc.git $nvim_dir
+fi
+
 echo " ******** Setting default browser ********* "
 browser=firefox-developer-edition.desktop
 if [ -f /usr/share/applications/$browser ] || [ -f ~/.local/share/applications/$browser ]; then
