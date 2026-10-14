@@ -36,6 +36,45 @@
 local directions = { H = "l", J = "d", K = "u", L = "r" }
 local direction_names = { l = "left", d = "down", u = "up", r = "right" }
 
+local function monitor_in_direction(direction)
+  local active = hl.get_active_monitor()
+  local active_x = active.x + active.width / 2
+  local active_y = active.y + active.height / 2
+  local target, target_distance
+
+  for _, monitor in ipairs(hl.get_monitors()) do
+    if monitor.name ~= active.name then
+      local dx = monitor.x + monitor.width / 2 - active_x
+      local dy = monitor.y + monitor.height / 2 - active_y
+      local in_direction =
+        (direction == "l" and dx < 0)
+        or (direction == "r" and dx > 0)
+        or (direction == "u" and dy < 0)
+        or (direction == "d" and dy > 0)
+
+      if in_direction then
+        local distance = dx * dx + dy * dy
+        if not target_distance or distance < target_distance then
+          target = monitor
+          target_distance = distance
+        end
+      end
+    end
+  end
+
+  return target
+end
+
+local function focus_monitor_direction(direction)
+  local target = monitor_in_direction(direction)
+  if target then hl.dispatch(hl.dsp.focus({ monitor = target.name })) end
+end
+
+local function move_window_to_monitor_direction(direction)
+  local target = monitor_in_direction(direction)
+  if target then hl.dispatch(hl.dsp.window.move({ monitor = target.name })) end
+end
+
 -- Note: SHIFT+ALT+L is also the "Copy URL" shortcut inside Omarchy web apps.
 -- The swap binding below takes it over globally.
 
@@ -51,17 +90,21 @@ for key, direction in pairs(directions) do
   -- ctrl + alt - hjkl: move window and split.
   o.bind("CTRL + ALT + " .. key, "Move window " .. name, hl.dsp.window.move({ direction = direction }))
 
-  -- Displays live on SUPER+CTRL+ALT: shift+ctrl - hjkl belongs to apps on
-  -- Linux (word selection, browser devtools).
-  o.bind("SUPER + CTRL + ALT + " .. key, "Focus monitor " .. name, hl.dsp.focus({ monitor = direction }))
+  -- ctrl + shift - hjkl: focus the monitor in that direction.
+  hl.unbind("SUPER + CTRL + ALT + " .. key)
+  o.bind("CTRL + SHIFT + " .. key, "Focus monitor " .. name, function()
+    focus_monitor_direction(direction)
+  end)
 end
 
--- Move window to the display on the left/right/top/bottom and follow it.
-for key, direction in pairs({ LEFT = "l", DOWN = "d", UP = "u", RIGHT = "r" }) do
+-- Move window to the nearest display in the indicated direction and follow it.
+for key, direction in pairs(directions) do
+  hl.unbind("SUPER + CTRL + ALT + " .. ({ l = "LEFT", d = "DOWN", u = "UP", r = "RIGHT" })[direction])
+  hl.unbind("SUPER + ALT + " .. key)
   o.bind(
-    "SUPER + CTRL + ALT + " .. key,
+    "SUPER + ALT + " .. key,
     "Move window to monitor " .. direction_names[direction],
-    hl.dsp.window.move({ monitor = direction })
+    function() move_window_to_monitor_direction(direction) end
   )
 end
 
@@ -98,22 +141,85 @@ for workspace = 1, 9 do
   )
 end
 
--- ctrl + left / right: previous / next workspace, like macOS. Walks through
--- workspaces 1..workspace_count even when they are empty and stops at the ends.
+-- Keep existing workspace IDs in place and assign each monitor five unique
+-- IDs. New workspaces are created on whichever monitor currently has focus.
 local workspace_count = 5
+local monitor_workspaces = {
+  ["DP-1"] = { 1, 2, 5, 6, 7 },
+  ["DP-2"] = { 3, 8, 9, 10, 11 },
+  ["DVI-I-1"] = { 4, 12, 13, 14, 15 },
+  ["eDP-1"] = { 16, 17, 18, 19, 20 },
+}
+
+local function focused_monitor_workspaces()
+  local monitor = hl.get_active_monitor()
+  local workspaces = monitor and monitor_workspaces[monitor.name]
+  if not workspaces then
+    error("No workspace IDs configured for focused monitor " .. tostring(monitor and monitor.name or "unknown"))
+  end
+  return workspaces
+end
+
+local function focus_local_workspace(index)
+  local workspaces = focused_monitor_workspaces()
+  hl.dispatch(hl.dsp.focus({ workspace = tostring(workspaces[index]) }))
+end
 
 local function step_workspace(delta)
   return function()
+    local workspaces = focused_monitor_workspaces()
     local workspace = hl.get_active_workspace()
-    local target = (workspace and workspace.id or 1) + delta
-    if target >= 1 and target <= workspace_count then
-      hl.dispatch(hl.dsp.focus({ workspace = tostring(target) }))
+    local current_index
+    for index, workspace_id in ipairs(workspaces) do
+      if workspace and workspace.id == workspace_id then
+        current_index = index
+        break
+      end
+    end
+
+    if not current_index then
+      error("Focused workspace is outside the configured range for its monitor")
+    end
+
+    local target_index = current_index + delta
+    if target_index >= 1 and target_index <= workspace_count then
+      focus_local_workspace(target_index)
     end
   end
 end
 
+-- SUPER+1..5 select the corresponding local workspace. Disable the remaining
+-- default numeric workspace shortcuts so they cannot jump to another monitor.
+for workspace = 1, 10 do
+  local key = "SUPER + code:" .. tostring(workspace + 9)
+  hl.unbind(key)
+  if workspace <= workspace_count then
+    local index = workspace
+    o.bind(key, "Switch to local workspace " .. workspace, function()
+      focus_local_workspace(index)
+    end)
+  end
+end
+
+-- Keep every built-in sequential workspace shortcut monitor-local as well.
+hl.unbind("SUPER + TAB")
+hl.unbind("SUPER + SHIFT + TAB")
+hl.unbind("SUPER + CTRL + TAB")
+hl.unbind("SUPER + mouse_down")
+hl.unbind("SUPER + mouse_up")
+o.bind("SUPER + TAB", "Next workspace on focused monitor", step_workspace(1))
+o.bind("SUPER + SHIFT + TAB", "Previous workspace on focused monitor", step_workspace(-1))
+o.bind("SUPER + CTRL + TAB", "Previous workspace on focused monitor", step_workspace(-1))
+o.bind("SUPER + mouse_down", "Next workspace on focused monitor", step_workspace(1))
+o.bind("SUPER + mouse_up", "Previous workspace on focused monitor", step_workspace(-1))
+
+-- ctrl + left / right: previous / next workspace, like macOS.
 o.bind("CTRL + LEFT", "Previous workspace", step_workspace(-1))
 o.bind("CTRL + RIGHT", "Next workspace", step_workspace(1))
+
+-- super + shift - a: Claude desktop instead of Omarchy's ChatGPT web app.
+hl.unbind("SUPER + SHIFT + A")
+o.bind("SUPER + SHIFT + A", "Claude", { launch = "claude-desktop", focus = "^com\\.anthropic\\.Claude$" })
 
 -- ctrl + alt - r: reload Hyprland.
 o.bind("CTRL + ALT + R", "Reload Hyprland", "hyprctl reload")

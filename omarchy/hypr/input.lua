@@ -47,6 +47,8 @@
 -- Use natural (inverse) scrolling on the touchpad.
 hl.config({
   input = {
+    -- Use natural scrolling on mice and trackpoints.
+    natural_scroll = true,
     touchpad = {
       natural_scroll = true,
     },

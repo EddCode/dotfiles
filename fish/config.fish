@@ -50,3 +50,10 @@ function g -d "Search Google from the terminal"
     set url "https://www.google.com/search?q=$argv"
     exec lynx $url
 end
+
+# pnpm
+set -gx PNPM_HOME '/home/eddcode/.local/share/pnpm'
+if test "$PATH[1]" != "$PNPM_HOME/bin"
+  set -gx PATH "$PNPM_HOME/bin" $PATH
+end
+# pnpm end

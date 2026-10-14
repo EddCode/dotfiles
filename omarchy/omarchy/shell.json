@@ -15,6 +15,9 @@
         },
         {
           "id": "omarchy.workspaces"
+        },
+        {
+          "id": "eddcode.monitor-layout"
         }
       ],
       "center": [
@@ -32,6 +35,9 @@
         },
         {
           "id": "omarchy.weather"
+        },
+        {
+          "id": "abduldotdev.camera"
         },
         {
           "id": "omarchy.system-update"
